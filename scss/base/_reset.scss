@@ -1,0 +1,50 @@
+// ==========================================================================
+// Boilerplate: reset moderno basado en el "CSS Reset" de Josh W. Comeau
+// (https://www.joshwcomeau.com/css/custom-css-reset/). Quita las diferencias
+// entre navegadores y deja una base predecible para empezar a maquetar.
+// ==========================================================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}

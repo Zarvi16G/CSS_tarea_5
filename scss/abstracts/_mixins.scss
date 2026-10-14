@@ -1,0 +1,25 @@
+@use "variables" as *;
+
+// Media query mobile first: los estilos base son para móvil y este mixin
+// añade los cambios a partir de un ancho mínimo.
+// Uso: @include desde($bp-tablet) { ... }
+@mixin desde($ancho) {
+    @media (min-width: $ancho) {
+        @content;
+    }
+}
+
+// Caja con el estilo de tarjeta (fondo, borde y borde superior neón)
+@mixin caja-tarjeta {
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-top: 3px solid var(--rosa);
+    border-radius: $radio;
+}
+
+// Texto pequeño de datos (etiquetas, pies de foto, metadatos)
+@mixin texto-mono {
+    font-family: $fuente-mono;
+    font-size: 0.875rem;
+    color: var(--texto-suave);
+}

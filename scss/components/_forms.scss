@@ -1,0 +1,60 @@
+@use "../abstracts/variables" as *;
+
+// ==========================================================================
+// Formularios (registro, login y contacto).
+// ==========================================================================
+
+form {
+    max-width: 640px;
+
+    p {
+        margin-bottom: 1.25rem;
+    }
+}
+
+fieldset {
+    margin-bottom: var(--espacio);
+    padding: 1rem;
+    border: 1px solid var(--borde);
+    border-radius: $radio;
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-family: $fuente-subtitulo;
+    font-weight: 600;
+    color: var(--cian);
+}
+
+label {
+    font-family: $fuente-mono;
+    color: var(--texto-suave);
+}
+
+input:not([type="checkbox"], [type="radio"]),
+select,
+textarea {
+    display: block;
+    width: 100%;
+    margin-top: 0.35rem;
+    padding: 0.65rem 0.75rem;
+    color: var(--texto);
+    background-color: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: $radio;
+
+    &:hover {
+        border-color: var(--cian);
+    }
+
+    &:focus {
+        outline: 2px solid var(--cian);
+        outline-offset: 1px;
+    }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    accent-color: var(--rosa);
+    cursor: pointer;
+}

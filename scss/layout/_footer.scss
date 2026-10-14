@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as *;
+
+// ==========================================================================
+// Pie de página sencillo con texto suave.
+// ==========================================================================
+
+.pie {
+    max-width: $ancho-max;
+    margin: 0 auto;
+    padding: var(--espacio);
+    border-top: 1px solid var(--borde);
+    color: var(--texto-suave);
+    text-align: center;
+
+    p {
+        margin: 0.25rem 0;
+    }
+}

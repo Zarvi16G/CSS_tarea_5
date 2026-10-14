@@ -1,0 +1,19 @@
+// ==========================================================================
+// Variables de SASS: tipografías, medidas y puntos de corte.
+// Los colores son variables CSS (en base/_root.scss) porque cambian con el
+// modo oscuro en tiempo real, y SASS solo existe al compilar.
+// ==========================================================================
+
+// Tipografías
+$fuente-titulo: "Orbitron", sans-serif;
+$fuente-subtitulo: "Chakra Petch", sans-serif;
+$fuente-texto: "Exo 2", sans-serif;
+$fuente-mono: "Share Tech Mono", monospace;
+
+// Medidas
+$ancho-max: 1100px;
+$radio: 4px;
+
+// Puntos de corte (mobile first: se usan con min-width)
+$bp-tablet: 600px;
+$bp-escritorio: 900px;

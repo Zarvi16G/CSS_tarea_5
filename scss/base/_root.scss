@@ -1,0 +1,31 @@
+// ==========================================================================
+// Colores como variables CSS: modo claro por defecto y modo oscuro según la
+// preferencia del sistema.
+// ==========================================================================
+
+:root {
+    --fondo: #F7F3FA;
+    --tarjeta: #FFFFFF;
+    --rosa: #D1146A;
+    --cian: #007C8A;
+    --borde: #E3C6D3;
+    --texto: #1A1024;
+    --texto-suave: #5E5470;
+
+    // Separación general; crece en pantallas grandes (ver layout/_main.scss)
+    --espacio: 1rem;
+
+    color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fondo: #0D0A14;
+        --tarjeta: #1A1024;
+        --rosa: #FF2E88;
+        --cian: #00F0FF;
+        --borde: #7A1035;
+        --texto: #EDE6F2;
+        --texto-suave: #9A8FAD;
+    }
+}

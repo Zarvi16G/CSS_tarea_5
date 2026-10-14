@@ -1,0 +1,82 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ==========================================================================
+// Tarjetas (cursos, noticias y equipo).
+// ==========================================================================
+
+.tarjeta {
+    @include caja-tarjeta;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+
+    @include desde($bp-tablet) {
+        padding: 1.75rem;
+    }
+
+    // Hover: el borde lateral pasa a cian (cambio directo)
+    &:hover {
+        border-color: var(--cian);
+        border-top-color: var(--rosa);
+    }
+
+    img {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        margin-bottom: 1.25rem;
+        border-radius: $radio;
+    }
+
+    // El enlace final queda abajo aunque el texto sea corto
+    > a:last-child {
+        margin-top: auto;
+    }
+}
+
+// ---------- Equipo: avatar arriba ----------
+.equipo {
+    figure {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    // Vale tanto para <img> como para <svg> pegado directamente
+    img,
+    svg {
+        width: 120px;
+        height: 120px;
+        aspect-ratio: 1;
+        margin: 0 auto 1rem;
+        border: 1px solid var(--borde);
+        border-radius: 50%;
+        object-fit: cover;
+
+        @include desde($bp-tablet) {
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    figcaption,
+    p {
+        color: var(--texto);
+    }
+}
+
+// ---------- Llamada a la acción ----------
+.llamada {
+    @include caja-tarjeta;
+    padding: 1.5rem;
+    text-align: center;
+
+    @include desde($bp-tablet) {
+        padding: 2rem;
+    }
+
+    // El formulario tiene ancho máximo: se centra para que el botón quede en medio
+    form {
+        margin-inline: auto;
+    }
+}

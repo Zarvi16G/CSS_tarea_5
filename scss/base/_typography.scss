@@ -1,0 +1,123 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ==========================================================================
+// Tipografía. El neón solo va en títulos y enlaces; los párrafos usan el
+// color de texto normal.
+// ==========================================================================
+
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: $fuente-texto;
+    font-size: 1rem; // 16px en móvil
+    line-height: 1.6;
+
+    @include desde($bp-tablet) {
+        font-size: 1.0625rem; // 17px
+    }
+
+    @include desde($bp-escritorio) {
+        font-size: 1.125rem; // 18px
+    }
+}
+
+h1 {
+    margin-bottom: var(--espacio);
+    font-family: $fuente-titulo;
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: var(--rosa);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+
+    @include desde($bp-tablet) {
+        font-size: 2.2rem;
+    }
+
+    @include desde($bp-escritorio) {
+        font-size: 2.75rem;
+    }
+}
+
+h2,
+h3 {
+    margin-bottom: 1rem;
+    font-family: $fuente-subtitulo;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.4rem;
+    color: var(--cian);
+
+    @include desde($bp-tablet) {
+        font-size: 1.9rem;
+    }
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: var(--texto);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+// Etiquetas, fechas y datos pequeños
+.etiqueta,
+.meta,
+figcaption,
+caption,
+small {
+    @include texto-mono;
+}
+
+.etiqueta {
+    color: var(--rosa);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+// ---------- Enlaces (hover sin transición) ----------
+a {
+    color: var(--cian);
+
+    &:hover,
+    &:focus-visible {
+        color: var(--rosa);
+    }
+}
+
+// Los títulos enlazados de las tarjetas heredan el color del título
+h3 a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+        color: var(--rosa);
+        text-decoration: underline;
+    }
+}
+
+// Enlaces de acción con icono SVG ("Ver curso", "Leer noticia"...)
+.enlace-icono {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: $fuente-mono;
+
+    &:hover .icono,
+    &:focus-visible .icono {
+        translate: 3px 0; // desplazamiento directo, sin transición
+    }
+}
+
+// Iconos SVG en línea: toman el color del texto (currentColor)
+.icono {
+    flex-shrink: 0;
+    width: 1em;
+    height: 1em;
+}

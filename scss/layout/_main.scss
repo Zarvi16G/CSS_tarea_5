@@ -1,0 +1,50 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ==========================================================================
+// Contenido principal: centrado, ancho máximo y espacio entre secciones.
+// ==========================================================================
+
+:root {
+    @include desde($bp-tablet) {
+        --espacio: 1.5rem;
+    }
+}
+
+main {
+    max-width: $ancho-max;
+    margin: 0 auto;
+    padding: calc(var(--espacio) * 2) var(--espacio);
+}
+
+main > section,
+main > article > section {
+    margin-bottom: calc(var(--espacio) * 2.5);
+
+    @include desde($bp-tablet) {
+        margin-bottom: calc(var(--espacio) * 3);
+    }
+}
+
+// Imágenes principales (fuera de tarjetas)
+main > section > img,
+main > article > img {
+    margin-bottom: var(--espacio);
+    border: 1px solid var(--borde);
+    border-radius: $radio;
+}
+
+// Cuadrícula de tarjetas: una columna en móvil; desde tablet, tantas
+// columnas de mínimo 280px como quepan.
+.tarjetas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--espacio);
+    margin-bottom: var(--espacio);
+    padding: 0;
+    list-style: none;
+
+    @include desde($bp-tablet) {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+}

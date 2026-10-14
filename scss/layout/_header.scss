@@ -1,0 +1,71 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ==========================================================================
+// Encabezado y menú. En móvil el menú va debajo del logo; desde tablet se
+// ponen en la misma fila.
+// ==========================================================================
+
+.cabecera {
+    max-width: $ancho-max;
+    margin: 0 auto;
+    padding: var(--espacio);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    border-bottom: 1px solid var(--borde);
+
+    @include desde($bp-escritorio) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+}
+
+.cabecera__logo img {
+    width: 170px;
+
+    // El logo es negro: se invierte para que se vea sobre el fondo oscuro
+    @media (prefers-color-scheme: dark) {
+        filter: invert(1);
+    }
+
+    @include desde($bp-tablet) {
+        width: 200px;
+    }
+}
+
+.menu ul {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+
+    @include desde($bp-escritorio) {
+        gap: 0.5rem 1.5rem;
+    }
+}
+
+.menu a {
+    font-family: $fuente-subtitulo;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &:hover,
+    &:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 0.4em;
+    }
+
+    // Página actual
+    &[aria-current="page"] {
+        color: var(--rosa);
+        text-decoration: underline;
+        text-underline-offset: 0.4em;
+    }
+}

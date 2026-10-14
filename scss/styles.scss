@@ -1,0 +1,24 @@
+// ==========================================================================
+// Conquer Academy - Hoja de estilos principal
+// Se compila a css/styles.css con la extensión Live Sass Compiler de VS Code
+// (configurada en .vscode/settings.json para guardar el resultado en /css).
+//
+// Minimalista y estático, estética cyberpunk sobria. Mobile first.
+// Sin animaciones, transiciones, sombras, brillos ni degradados.
+// ==========================================================================
+
+// Base
+@use "base/reset";
+@use "base/root";
+@use "base/typography";
+
+// Estructura
+@use "layout/header";
+@use "layout/main";
+@use "layout/footer";
+
+// Componentes
+@use "components/cards";
+@use "components/buttons";
+@use "components/forms";
+@use "components/content";

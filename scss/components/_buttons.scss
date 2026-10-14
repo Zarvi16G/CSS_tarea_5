@@ -1,0 +1,35 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+// ==========================================================================
+// Botones: contorno neón; en hover se rellenan (sin transición).
+// ==========================================================================
+
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%; // en móvil ocupa todo el ancho, más fácil de pulsar
+    padding: 0.75rem 1.75rem;
+    font-family: $fuente-subtitulo;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--rosa);
+    background-color: transparent;
+    border: 2px solid var(--rosa);
+    border-radius: $radio;
+    cursor: pointer;
+
+    @include desde($bp-tablet) {
+        width: auto;
+    }
+
+    &:hover,
+    &:focus-visible {
+        color: var(--fondo);
+        background-color: var(--rosa);
+    }
+}
